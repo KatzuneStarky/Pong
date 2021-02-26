@@ -1,14 +1,15 @@
 var rnd = Math.floor(Math.random() * 2) + 1;
 class Ball{
-    constructor(coords){
+    constructor(coords, sonido){
         this.pPlayers = [];
         this.x = coords.x;
         this.y = coords.y;
         this.width = 67;
         this.height = 67;
+        this.sonido = sonido;
         this.img = loadImage ("/src/assets/sprites/ball.png");
-        this.speedX = rnd == 2 ? 10 : -5;
-        this.speedY = rnd == 2 ? 10 : -5;
+        this.speedX = rnd == 1 ? 5 : -5;
+        this.speedY = rnd == 1 ? 5 : -5;
         
     }
     move(){    
@@ -26,6 +27,7 @@ class Ball{
         this.pPlayers.forEach((e) => {
             if(this.x < e.x + e.width && this.x + this.width > e.x && this.y < e.y + e.height && this.height + this.y > e.y){
                 this.speedX *= -1;
+                this.sonido.play();
             }
         });
     }

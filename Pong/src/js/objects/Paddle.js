@@ -5,17 +5,21 @@ class Paddle{
         this.width = paddle.width;
         this.height = paddle.height;
         this.img = loadImage("/src/assets/sprites/paddle.png");
-        this.speed = 15;
+        this.speed = 5;
         this.controllSettings = controllSettings;
+        this.hb = new HitboxSquare(HitBoxFactory.coords(this.x+8, this.y+8),
+        HitBoxFactory.SquareDims(19, 110.5));
     }
     moveUp(){
-        if(this.y >= 0){
+        if(this.hb.y >= 0){
             this.y -= this.speed; 
+            this.hb.y -= this.speed; 
         }
     }
     moveDown(){
-        if(this.y <= board.height - paddle.height){
+        if(this.hb.y <= board.height - paddle.height){
             this.y += this.speed;
+            this.hb.y += this.speed; 
         }
     }
     move(){
@@ -28,6 +32,7 @@ class Paddle{
     draw(){
         image(this.img, this.x, this.y, this.width, this.height);
         this.move();
+        this.hb.draw();
     }
 }
 

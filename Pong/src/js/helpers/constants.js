@@ -1,5 +1,5 @@
 const board = {
-    width: 1525,
+    width: 1400,
     height: 725,
 };
 

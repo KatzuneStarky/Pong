@@ -1,5 +1,5 @@
 const board = {
-    width: 1525,
+    width: 1400,
     height: 725,
 };
 
@@ -12,3 +12,8 @@ const ballSpec = {
     width: 67,
     height: 67,
 }
+
+const playersId = {
+    player1: "p1",
+    player2: "p2", 
+}; 
